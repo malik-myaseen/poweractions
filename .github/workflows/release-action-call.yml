@@ -9,6 +9,12 @@ on:
             description: 'Solution name to release'
             required: true
             default: 'TestSolution'
+          BUILD_ENVIRONMENT_URL:
+            description: 'Build environment URL'
+            required: true
+          PRODUCTION_ENVIRONMENT_URL:
+            description: 'Production environment URL'
+            required: true
 #   release:
 #       types: [created]        
 permissions:
@@ -19,6 +25,8 @@ jobs:
     with:
       #You can specify the solution name here
       solution_name: TestSolution
+      BUILD_ENVIRONMENT_URL: ${{ secrets.BUILD_ENVIRONMENT_URL }}
+      PRODUCTION_ENVIRONMENT_URL: ${{ secrets.PRODUCTION_ENVIRONMENT_URL }}
     #   BUILD_ENVIRONMENT_URL: ${{ github.event.inputs.BUILD_ENVIRONMENT_URL }}  # Passing the input value for BUILD_ENVIRONMENT_URL
     #   PRODUCTION_ENVIRONMENT_URL: ${{ github.event.inputs.PRODUCTION_ENVIRONMENT_URL }}  # Passing the input value for PRODUCTION_ENVIRONMENT_URL  
     #   #Update your values here
@@ -27,8 +35,8 @@ jobs:
     #   CLIENT_ID: ${{ secrets.CLIENT_ID}}
     #   TENANT_ID: ${{ secrets.TENANT_ID}}      
     secrets:
-      envSecret: ${{ secrets.PowerPlatformSPN }}
-      BUILD_ENVIRONMENT_URL: ${{ secrets.BUILD_ENVIRONMENT_URL }}
-      PRODUCTION_ENVIRONMENT_URL: ${{ secrets.PRODUCTION_ENVIRONMENT_URL}}
+    #   BUILD_ENVIRONMENT_URL: ${{ secrets.BUILD_ENVIRONMENT_URL }}
+    #   PRODUCTION_ENVIRONMENT_URL: ${{ secrets.PRODUCTION_ENVIRONMENT_URL}}
       CLIENT_ID: ${{ secrets.CLIENT_ID}}
       TENANT_ID: ${{ secrets.TENANT_ID}}
+      envSecret: ${{ secrets.PowerPlatformSPN }}

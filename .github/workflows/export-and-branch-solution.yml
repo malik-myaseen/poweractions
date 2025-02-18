@@ -33,6 +33,7 @@ permissions:
 jobs:
   export-from-dev:
     runs-on: windows-latest
+    timeout-minutes: 180
     # or you can say runs-on: ubuntu-latest
     env:
       RUNNER_DEBUG: 1

@@ -4,16 +4,29 @@ name: Release action
 
 on:
     workflow_dispatch:
+        inputs:
+          solution_name:
+            description: 'Solution name to release'
+            required: true
+            default: 'TestSolution'
+          BUILD_ENVIRONMENT_URL:
+            description: 'Build environment URL'
+            required: true
+          PRODUCTION_ENVIRONMENT_URL:
+            description: 'Production environment URL'
+            required: true
 #   release:
 #       types: [created]        
 permissions:
   contents: write
 jobs:
-  Release-solution-ALMLab:
+  Release-solution-TestSolution:
     uses: ./.github/workflows/release-solution-to-prod-with-inputs.yml
     with:
       #You can specify the solution name here
       solution_name: TestSolution
+      BUILD_ENVIRONMENT_URL: ${{ github.event.inputs.BUILD_ENVIRONMENT_URL }}  # Passing the input value for BUILD_ENVIRONMENT_URL
+      PRODUCTION_ENVIRONMENT_URL: ${{ github.event.inputs.PRODUCTION_ENVIRONMENT_URL }}  # Passing the input value for PRODUCTION_ENVIRONMENT_URL  
       #Update your values here
     #   BUILD_ENVIRONMENT_URL: ${{ secrets.BUILD_ENVIRONMENT_URL }}
     #   PRODUCTION_ENVIRONMENT_URL: ${{ secrets.PRODUCTION_ENVIRONMENT_URL}}

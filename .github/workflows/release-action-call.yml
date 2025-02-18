@@ -25,8 +25,8 @@ jobs:
     with:
       #You can specify the solution name here
       solution_name: TestSolution
-      BUILD_ENVIRONMENT_URL: ${{ secrets.BUILD_ENVIRONMENT_URL }}
-      PRODUCTION_ENVIRONMENT_URL: ${{ secrets.PRODUCTION_ENVIRONMENT_URL }}
+      BUILD_ENVIRONMENT_URL: https://org5569b62d.crm15.dynamics.com
+      PRODUCTION_ENVIRONMENT_URL: https://orgdc49fd0d.crm15.dynamics.com
     #   BUILD_ENVIRONMENT_URL: ${{ github.event.inputs.BUILD_ENVIRONMENT_URL }}  # Passing the input value for BUILD_ENVIRONMENT_URL
     #   PRODUCTION_ENVIRONMENT_URL: ${{ github.event.inputs.PRODUCTION_ENVIRONMENT_URL }}  # Passing the input value for PRODUCTION_ENVIRONMENT_URL  
     #   #Update your values here

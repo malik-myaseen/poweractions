@@ -61,6 +61,16 @@ jobs:
       with:
         lfs: true
 
+
+     # Step to echo the input values to verify if they are getting passed correctly
+    - name: Echo the input values
+      run: |
+        echo "Solution Name: ${{ inputs.solution_name }}"
+        echo "Build Environment URL: ${{ inputs.BUILD_ENVIRONMENT_URL }}"
+        echo "Production Environment URL: ${{ inputs.PRODUCTION_ENVIRONMENT_URL }}"
+        echo "Client ID: ${{ inputs.CLIENT_ID }}"
+        echo "Tenant ID: ${{ inputs.TENANT_ID }}"
+        
     - name: Pack solution
       uses: microsoft/powerplatform-actions/pack-solution@v0
       with:
